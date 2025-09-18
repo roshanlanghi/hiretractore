@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+     <label for="name">name:</label><input type="text" name="name" placeholder="enter your name">
+      <label for="pswd">password:</label><input type="varchar">
+      <button id="btn1">submit</button>
+    </form>
+    <script>
+
+
+document.getElementById("btn1").addEventListener(click,()=>{
+    getdata();
+}
+)
+async function getdata()
+{
+   $response=await fetch("");
+   $data=await response.json();
+   console.log($data); 
+
+
+}
+    </script>
+</body>
+</html>

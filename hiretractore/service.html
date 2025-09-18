@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tractor Owner Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- ✅ Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      scroll-behavior: smooth;
+    }
+
+    /* ✅ Hero Section */
+    .hero {
+      background: url('https://wallpapercave.com/wp/wp1928415.jpg') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      opacity: 0; 
+      transform: translateY(40px);
+      animation: fadeSlideUp 1.5s forwards ease-in-out;
+    }
+    .hero h2 { text-shadow: 2px 2px 6px rgba(0,0,0,0.6); }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-success:hover {
+      transform: scale(1.05);
+      transition: transform 0.2s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- ✅ Fixed Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#2e7d32;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">🚜 TractorBook</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#hero">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="#addTractor">Add Tractor</a></li>
+          <li class="nav-item"><a class="nav-link" href="#myTractors">My Tractors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bookings">Bookings</a></li>
+          <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="#logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ✅ Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <h2 class="display-5 fw-bold">Welcome Tractor Owner!</h2>
+      <p class="lead">Manage your tractors, track bookings, and grow your income.</p>
+    </div>
+  </section>
+
+  <!-- ✅ Add Tractor Form -->
+  <section class="py-5 bg-light text-center fade-in-section" id="addTractor">
+    <div class="container">
+      <h3 class="text-success mb-4">Register Your Tractor</h3>
+      <form class="row g-3 justify-content-center">
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Tractor Name/Model" required>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" required>
+            <option value="">Select Type</option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Heavy Duty</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" placeholder="Hourly Rate (₹)" required>
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" placeholder="Daily Rate (₹)" required>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-success w-100">Add Tractor</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ✅ My Tractors -->
+  <section class="py-5 text-center fade-in-section" id="myTractors">
+    <div class="container">
+      <h3 class="text-success mb-4">My Tractors</h3>
+      <div class="row g-4">
+        <div class="col-md-4 col-sm-6">
+          <div class="card shadow-sm">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuirB62Qeu9S8mC4GxPMiMDR0jiECNyTU2wg&s" 
+                 class="card-img-top" alt="Mahindra 575">
+            <div class="card-body">
+              <h4 class="card-title">Mahindra 575</h4>
+              <p class="card-text">₹500/hr | ₹3500/day</p>
+              <button class="btn btn-outline-danger btn-sm">Remove</button>
+              <button class="btn btn-success btn-sm">Edit</button>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat more tractors -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Bookings -->
+  <section class="py-5 bg-success bg-opacity-10 text-center fade-in-section" id="bookings">
+    <div class="container">
+      <h3 class="text-success mb-4">Recent Bookings</h3>
+      <table class="table table-bordered table-striped bg-white shadow-sm">
+        <thead class="table-success">
+          <tr>
+            <th>Client Name</th>
+            <th>Tractor</th>
+            <th>Date</th>
+            <th>Duration</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ramesh</td>
+            <td>Mahindra 575</td>
+            <td>22 Aug 2025</td>
+            <td>5 hrs</td>
+            <td><span class="badge bg-success">Confirmed</span></td>
+          </tr>
+          <tr>
+            <td>Sunita</td>
+            <td>Swaraj 735</td>
+            <td>23 Aug 2025</td>
+            <td>1 day</td>
+            <td><span class="badge bg-warning text-dark">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ✅ Profile Section -->
+  <section class="py-5 text-center fade-in-section" id="profile">
+    <div class="container">
+      <h3 class="text-success mb-4">My Profile</h3>
+      <p><strong>Name:</strong> Rajesh Kumar</p>
+      <p><strong>Email:</strong> rajesh@example.com</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <button class="btn btn-success">Edit Profile</button>
+    </div>
+  </section>
+
+  <!-- ✅ Logout -->
+  <section class="py-5 bg-light text-center fade-in-section" id="logout">
+    <div class="container">
+      <h3 class="text-danger mb-4">Logout</h3>
+      <button class="btn btn-outline-danger">Logout</button>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer class="py-3" style="background-color:#2e7d32;">
+    <div class="container text-center text-white">
+      <p>&copy; 2025 TractorBook | For Tractor Owners</p>
+    </div>
+  </footer>
+
+  <!-- ✅ Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ✅ Tractor Form alert
+    document.querySelector("#addTractor form").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("✅ Tractor registered successfully!");
+    });
+
+    // ✅ Fade-in animation on scroll
+    const sections = document.querySelectorAll('.fade-in-section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+</body>
+</html>
