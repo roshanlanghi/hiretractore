@@ -55,4 +55,4 @@ A web application that connects farmers with nearby tractor owners, making it ea
 ## 📦 Installation / Usage
 1. Clone the repository:
    ```bash
-   git clone https://github.com/roshanlanghi/tractor-booking-platform.git
+   git clone https://github.com/roshanlanghi/tractorsampark.git
